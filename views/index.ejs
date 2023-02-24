@@ -7,24 +7,42 @@
     <style>
         .homeContainer {
             display: flex;
-        }
-        .underHomeTitle {
-            display: flex;
+            flex-direction: column;
         }
         .mangaContainer {
             display: flex;
+        }
+        .homeTitle {
+            border: green 1px solid;
+        }
+        .underHomeTitle {
+            display: flex;
+            border: blue solid 2px;
+            padding: 10px;
+            gap: 40px
+        }
+        .mangaCards {
+            border: red solid 2px;
+            width: 200px;
+            padding: 10px;
         }
         img {
             width: 150px;
             height: 250px;
             object-fit: contain;
+            padding: 10px;
+        }
+        .navBar {
+            border: black solid 2px;
         }
     </style>
     <title>Document</title>
 </head>
 <body>
     <div class="homeContainer">
-        <div class="homeTitle"></div>
+        <div class="homeTitle">
+            <h3>Phat Bailey Inc.</h3>
+        </div>
         <div class="underHomeTitle">
             <div class = "navBar">
                 <button class="button"><a href="/manga/new">create new item</a>
@@ -33,7 +51,7 @@
                 <% mangaHome.forEach(mangaHome=> { %>
                     <div class = "mangaCards">
                         <%=mangaHome.name %>
-                        <button class="button"><a href="/manga/<%= mangaHome.id %>"><img src=<%=mangaHome.img%>>
+                        <button class="button"><a href="/manga/<%= mangaHome.id %>"><img src=<%=mangaHome.img%>></a>
                         <form action="/manga/<%=mangaHome.id%>?_method=DELETE" method="POST">
                             <input type="submit" class="button" value="DELETE" />
                         </form>

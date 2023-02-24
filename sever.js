@@ -57,7 +57,9 @@ app.delete('/manga/:id', (req, res) => {
 //edit
 app.get('/manga/:id/edit', (req, res) => {
     Manga.findById(req.params.id, (err, foundMangaData) => {
-    res.render('edit.ejs');
+    res.render('edit.ejs', {
+        mangaEdit: foundMangaData
+    });
     });
 });
 //update
