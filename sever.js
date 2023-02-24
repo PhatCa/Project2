@@ -6,6 +6,8 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 
 mongoose.set('strictQuery', false);
+// const SeedData = require('./models/seed.js');
+const Manga = require('./models/mangaSchema.js');
 
 
 //new
@@ -15,10 +17,17 @@ mongoose.set('strictQuery', false);
 
 
 //seed
-
+app.get('/', (req, res) => {
+    Manga.create(SeedData, (err, createdMangaData) => {
+    res.send(createdMangaData);
+    });
+});
 
 //index
-
+app.get('/manga', (req, res) => {
+    res.render('index.ejs');
+    
+})
 
 //show
 
@@ -27,8 +36,9 @@ mongoose.set('strictQuery', false);
 
 
 //edit
-
-
+app.get('/manga/:id', (req, res) => {
+    res.render('edit.ejs');
+});
 //update
 
 
