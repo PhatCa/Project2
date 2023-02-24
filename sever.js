@@ -41,18 +41,27 @@ app.get('/manga', (req, res) => {
 })
 
 //show
-
+app.get('/manga/:id', (req, res)=> {
+    Manga.findById(req.params.id, (err, showMangaData) => {
+        res.render('show.ejs');
+    });
+})
 
 //destroy
 
 
 //edit
 app.get('/manga/:id', (req, res) => {
+    Manga.findById(req.params.id, (err, foundMangaData) => {
     res.render('edit.ejs');
+    });
 });
 //update
-
-
+app.put('/manga/:id', (req, res) => {
+    Manga.findByIdandUpdate(req.params.id, req.body, (err, updatedMangaData) => {
+        res.redirect('/manga');
+    });
+});
 //listeners
 mongoose.connect(process.env.MONGODB, () => {
 	console.log('connection to mongo is established');
