@@ -48,10 +48,13 @@ app.get('/manga/:id', (req, res)=> {
 })
 
 //destroy
-
-
+app.delete('/manga/:id', (req, res) => {
+    Manga.findByIdAndDelete(req.params.id, (err, deletedMangaData) => {
+        res.redirect('/manga');
+    });
+});
 //edit
-app.get('/manga/:id', (req, res) => {
+app.get('/manga/:id/edit', (req, res) => {
     Manga.findById(req.params.id, (err, foundMangaData) => {
     res.render('edit.ejs');
     });
