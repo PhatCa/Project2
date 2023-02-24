@@ -24,18 +24,18 @@ app.post('/manga/', (req, res) => {
     })
 })
 //seed
-app.get('/manga/seed', (req, res) => {
-    Manga.create(SeedData, (err, createdMangaData) => {
-    res.send(createdMangaData);
-    });
-});
+// app.get('/manga/seed', (req, res) => {
+//     Manga.create(SeedData, (err, createdMangaData) => {
+//     res.send(createdMangaData);
+//     });
+// });
 
 //index
 app.get('/manga', (req, res) => {
     res.render('index.ejs');
     Manga.find({}, (err, mangaData) => {
         res.render('index.ejs', {
-
+            mangaHome: mangaData
         });
     });
 })
@@ -43,7 +43,9 @@ app.get('/manga', (req, res) => {
 //show
 app.get('/manga/:id', (req, res)=> {
     Manga.findById(req.params.id, (err, showMangaData) => {
-        res.render('show.ejs');
+        res.render('show.ejs', {
+            manga: showMangaData
+        });
     });
 })
 
