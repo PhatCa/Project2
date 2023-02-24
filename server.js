@@ -68,6 +68,12 @@ app.put('/manga/:id', (req, res) => {
         res.redirect('/manga');
     });
 });
+
+//Redirecting page from render
+app.get('https://mangasellingapp.onrender.com',(res,req)=>{
+    res.render('/manga')
+})
+
 //listeners
 mongoose.connect(process.env.MONGODB, () => {
 	console.log('connection to mongo is established');
