@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 app.use(methodOverride('_method'));
 
 mongoose.set('strictQuery', false);
-// const SeedData = require('./models/seed.js');
+const SeedData = require('./models/seed.js');
 const Manga = require('./models/mangaSchema.js');
 
 
