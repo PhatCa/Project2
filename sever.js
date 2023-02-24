@@ -32,10 +32,9 @@ app.post('/manga/', (req, res) => {
 
 //index
 app.get('/manga', (req, res) => {
-    res.render('index.ejs');
     Manga.find({}, (err, mangaData) => {
         res.render('index.ejs', {
-            mangaHome: mangaData
+            mangaHome: mangaData,
         });
     });
 })
