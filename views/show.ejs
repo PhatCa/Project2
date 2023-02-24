@@ -5,8 +5,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            background-image: url('');
+        }
+        .whole_page{
+            display:flex;
+        }
+        .item_picture{
+            width:50%;
+            height:50%;
+        }
+        img{
+            width: 300px;
+            height:400px;
+            object-fit: contain;
+        }
+        .right_item_picture{
+            display:flex;
+            flex-direction: column;
+        }
+        .cost{
+            border: red 2px solid;
+            width: 400px;
+            padding-left: 10%;
+            background-color: gray;
+            border-radius: 20px;
+        }
+        .rare{
+            color:gold
+        }
+        .silver{
+            color:silver
+        }
+        .normal{
+            color:rgb(205,127,50)
+        }
+        #cost_card4{
+            display:flex;
+            flex-direction: row;
+            gap:2px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Show page</h1>
+    <div class="whole_page">
+        <div class="item_picture">
+            <img src="<%= manga.img %>" alt="mangaImg">
+        </div>
+        <div class="right_item_picture">
+            <div class="cost">
+                <h4 id="cost_card1">Cost: $<%=manga.price %></h1>
+                <h4 id="cost_card2">Item Name: <%= manga.name %></h4>
+                <h4 id="cost_card3">Issue Number: <%= manga.issue %></h4>
+                <div id="cost_card4">
+                    <div><h4>Condition: </h4></div>
+                    <div class="<%=manga.condition %>"><h3><%=manga.condition %></h3></div>
+                </div>
+                <div>
+                    <h4>Status: 
+                        <% if(manga.condition === true){%>
+                                New
+                        <%} else{%>
+                                Used
+                            <%}%>
+                    </h4>
+                </div>
+            </div>
+            <div class="seller">
+                <div class="seller_pic"><h4>Pic</h4></div>
+                <div class="seller_name"><h4>John</h4></div>
+                <div class="contact"><h4>123-456-7777</h4></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
