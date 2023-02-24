@@ -71,5 +71,5 @@ mongoose.connect(process.env.MONGODB, () => {
 });
 
 app.listen(port, () => {
-	console.log(`pokedex app listening on port: ${port}`);
+	console.log(`ecom app listening on port: ${port}`);
 });
