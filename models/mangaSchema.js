@@ -9,3 +9,6 @@ const animeSchema = new mongoose.Schema({
     condition:{type:String, enum:["normal","rare","super rare"],default:"normal"},
     price:{type:Number,require:true}
 })
+
+const Manga = mongoose.model('Manga',animeSchema)
+module.exports= Manga
