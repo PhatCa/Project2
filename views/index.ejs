@@ -7,18 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <div class = "navBar">
-        <h1 class = "homeTitle">home page</h1>
-    </div>
-    <div class="mangaContainer">
-        <% mangaHome.forEach(mangaHome=> { %>
-            <div class = "mangaCards">
-                <%=mangaHome.name %>
+    <div class="homeContainer">
+        <div class="homeTitle"></div>
+        <div class="underHomeTitle">
+            <div class = "navBar"></div>
+            <div class="mangaContainer">
+                <% mangaHome.forEach(mangaHome=> { %>
+                    <div class = "mangaCards">
+                        <%=mangaHome.name %>
+                        <button class="button"><a href="/manga/<%= mangaHome.id %>"><img src=<%=mangaHome.img%>>
+                        <form action="/manga/<%=mangaHome.id%>?_method=DELETE" method="POST">
+                            <input type="submit" class="button" value="DELETE" />
+                        </form>
+                    </div>
+                    
+                <%})%>
             </div>
-            
-        <%})%>
+        </div>
     </div>
-    
-
 </body>
 </html>
