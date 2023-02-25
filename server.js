@@ -70,8 +70,8 @@ app.put('/manga/:id', (req, res) => {
 });
 
 //Redirecting page from render
-app.get('https://mangasellingapp.onrender.com',(res,req)=>{
-    res.render('/manga')
+app.get('/',(res,req)=>{
+    res.redirect('/manga')
 })
 
 //listeners
