@@ -6,6 +6,7 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 app.use(methodOverride('_method'));
+app.use(express.urlencoded({entended:false}))
 
 mongoose.set('strictQuery', false);
 const SeedData = require('./models/seed.js');
@@ -14,12 +15,21 @@ const Manga = require('./models/mangaSchema.js');
 
 //new
 app.get('/manga/new', (req, res) => {
-    res.render('new.ejs');
+    Manga.find({},(err,allManga)=>{
+        if(err){
+            console.log(err)
+        }else{
+            res.render('new.ejs',{
+                manga: allManga
+            })
+        }
+    })
 })
 
 //create
-app.post('/manga/', (req, res) => {
-    Manga.create(req.params.id, (err, data) => {
+app.post('/manga/new', (req, res) => {
+    Manga.create(req.body, (err, data) => {
+        console.log(req.body)
         res.redirect('/manga');
     })
 })
