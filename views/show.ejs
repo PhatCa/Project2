@@ -11,6 +11,7 @@
         }
         .whole_page{
             display:flex;
+            flex-wrap:wrap;
         }
         .item_picture{
             width:50%;
@@ -24,18 +25,24 @@
         .right_item_picture{
             display:flex;
             flex-direction: column;
+            gap: 10px;
+            
+        }
+        .book_img{
+            padding:2%;
+            background-color: white;
         }
         .cost{
-            border: red 2px solid;
+            border: red 8px solid;
             width: 400px;
             padding-left: 10%;
             background-color: gray;
             border-radius: 20px;
         }
-        .rare{
+        .superare{
             color:gold
         }
-        .silver{
+        .rare{
             color:silver
         }
         .normal{
@@ -46,12 +53,18 @@
             flex-direction: row;
             gap:2px;
         }
+        .seller{
+            border: blue solid 8px;
+            background:red;
+            padding-left: 10%;
+            border-radius: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="whole_page">
         <div class="item_picture">
-            <img src="<%= manga.img %>" alt="mangaImg">
+            <img class="book_img" src="<%= manga.img %>" alt="mangaImg">
         </div>
         <div class="right_item_picture">
             <div class="cost">
@@ -62,6 +75,7 @@
                     <div><h4>Condition: </h4></div>
                     <div class="<%=manga.condition %>"><h3><%=manga.condition %></h3></div>
                 </div>
+
                 <div>
                     <h4>Status: 
                         <% if(manga.condition === true){%>
@@ -71,6 +85,8 @@
                             <%}%>
                     </h4>
                 </div>
+                <a href="/manga/<%= manga.id %>/edit"><button>Edit</button></a>
+
             </div>
             <div class="seller">
                 <div class="seller_pic"><h4>Pic</h4></div>
