@@ -70,7 +70,7 @@ app.put('/manga/:id', (req, res) => {
 });
 
 //Redirecting page from render
-app.get('/',(res,req)=>{
+app.get('/',(req,res)=>{
     res.redirect('/manga')
 })
 
