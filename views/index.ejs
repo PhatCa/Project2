@@ -7,6 +7,8 @@
     <style>
         body {
             background-image: url('https://i.imgur.com/vXDWqIH.jpeg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
         }
         .homeContainer {
             display: flex;
@@ -18,10 +20,13 @@
             display: flex;
             border: purple 1px solid;
             flex-wrap: wrap;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            margin-bottom: 200px;
         }
         .homeTitle {
             border: green 1px solid;
-            background-color: 
+            background-color: green; 
         }
         .underHomeTitle {
             display: flex;
@@ -32,20 +37,24 @@
             height: 100%;
         }
         .mangaCards {
-            border: red solid 2px;
+            border: rgb(13, 12, 12) solid 2px;
             width: 200px;
-            padding: 10px;
-            height: 60%;
-
+            padding-left: 10px;
+            height: 100%;
         }
         img {
-            width: 150px;
-            height: 250px;
-            object-fit: contain;
-            padding: 10px;
+            width: 25vh;
+            height: 40vh;
+            object-fit: cover;
         }
         .navBar {
             border: black solid 2px;
+            background-image: url('https://i.imgur.com/XzQCoXz.jpg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        .buttonDelete {
+            position: relative;
         }
     </style>
     <title>Document</title>
@@ -62,10 +71,10 @@
             <div class="mangaContainer">
                 <% mangaHome.forEach(mangaHome=> { %>
                     <div class = "mangaCards">
-                        <%=mangaHome.name %>
+                        <h4><%=mangaHome.name %></h4>
                         <button class="button"><a href="/manga/<%= mangaHome.id %>"><img src=<%=mangaHome.img%>></a>
                         <form action="/manga/<%=mangaHome.id%>?_method=DELETE" method="POST">
-                            <input type="submit" class="button" value="DELETE" />
+                            <input type="submit" class="buttonDelete" value="DELETE" />
                         </form>
                     </div>
                     
