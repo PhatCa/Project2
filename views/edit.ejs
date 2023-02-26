@@ -5,8 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+
+    </style>
 </head>
 <body>
-    <h1>edit page</h1>
+    <div class="editPage">
+        <div class="navBarEdit">
+
+        </div>
+        <div class="underNavbar">
+            <div class="infoBox">
+                <form action="/trees/<%=treesEdit.id%>?_method=PUT" method="POST">
+                    <a>Manga Name:</a><input
+                    type="text"
+                    name="manga.name"
+                    placeholder="manga Name"
+                    class="form-control"
+                    value="<%=mangaEdit.name%>"
+                    /><br />
+                    <a>Issue Number:</a><input 
+                    type="Number" 
+                    name="manga.issue" 
+                    placeholder="manga Issue" 
+                    class="form-control"
+                    value="<%=mangaEdit.issue%>"
+                    /><br />
+                    <a>Publisher:</a><input 
+                    type="text" 
+                    name="manga.publisher" 
+                    placeholder="Publisher" 
+                    class="form-control"
+                    value="<%=mangaEdit.publisher%>" 
+                    /><br />
+                    <a>image:</a><input 
+                    type="image"
+                    name="manga"
+                    placeholder="img"
+                    class="form-control"
+                    value=""
+                    /><br />
+                    <a>New:</a><input 
+                    type="checkbox"  
+                    name="manga.new" 
+                    value="<%=mangaEdit.new%>" 
+                    /><br />
+                    <input  
+                    /><br />
+                    <input 
+                    type="number" 
+                    name="manga.price" 
+                    placeholder="mang Price"
+                    class="form-control"
+                    value="<%=mangaEdit.price%>" /><br />
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
