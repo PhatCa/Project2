@@ -16,7 +16,7 @@
         </div>
         <div class="underNavbar">
             <div class="infoBox">
-                <form action="/trees/<%=treesEdit.id%>?_method=PUT" method="POST">
+                <form action="/manga/<%=mangaEdit.id%>?_method=PUT" method="POST">
                     <a>Manga Name:</a><input
                     type="text"
                     name="manga.name"
@@ -50,14 +50,29 @@
                     name="manga.new" 
                     value="<%=mangaEdit.new%>" 
                     /><br />
-                    <input  
-                    /><br />
+                    <a>Condition:</a><br />
+                        normal:<input
+                        type="checkbox"
+                        name="manga.condition[0]"
+                        value="<%=mangaEdit.condition[0]%>"
+                        />
+                        rare:<input 
+                        type="checkbox" 
+                        name="manga.condition[1]" 
+                        value="<%=mangaEdit.condition[1]%>" 
+                        />
+                        supper rare:<input 
+                        type="checkbox" 
+                        name="manga.condition[2]"
+                        value="<%=mangaEdit.condition[2]%>" 
+                        /><br />
                     <input 
                     type="number" 
                     name="manga.price" 
                     placeholder="mang Price"
                     class="form-control"
-                    value="<%=mangaEdit.price%>" /><br />
+                    value="<%=mangaEdit.price%>" 
+                    /><br />
                 </form>
             </div>
         </div>
