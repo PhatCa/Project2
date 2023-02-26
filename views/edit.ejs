@@ -9,15 +9,18 @@
         body {
             background-image: url('https://i.imgur.com/vXDWqIH.jpeg');
             background-repeat: no-repeat;
-            background-size: 100% 100%;
+            background-attachment: fixed; 
+            background-size: 100%;
         }
         .editPage {
             display: flex;
             flex-direction: column;
             height: 100vh;
+            flex-wrap:wrap;
         }
         .navBarEdit {
             border: black solid 4px;
+            background-color: green;
         }
         .underNavBar {
             display: flex;
@@ -37,8 +40,9 @@
             margin-top: -200px;
             margin-right: 460px;
             background-color: aqua;
-            padding: 10px 10px 10px 10px;
+            padding: 30px 10px 10px 10px;
         }
+        
     </style>
 </head>
 <body>
