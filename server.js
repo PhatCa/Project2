@@ -11,8 +11,8 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({entended:false}))
 app.use(session({
     secret: 'sdlmadlamldasldanlwlrlqmlmlamslaladlmqlmlqa',
-    resave: false,
-    saveUninitialized:false
+    resave: true,
+    saveUninitialized:true
 }))
 
 mongoose.set('strictQuery', false);
@@ -156,7 +156,7 @@ app.post('/logout',(req,res)=>{
         if(err){
             console.log(err)
         }else{
-            res.redirect('/')
+            res.redirect('/login')
         }
     })
 })
