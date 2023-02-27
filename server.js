@@ -11,8 +11,9 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({entended:false}))
 app.use(session({
     secret: 'sdlmadlamldasldanlwlrlqmlmlamslaladlmqlmlqa',
-    resave: true,
-    saveUninitialized:true
+    resave:false,
+    saveUninitialized:true,
+    cookie:{secure:false}
 }))
 
 mongoose.set('strictQuery', false);
@@ -132,7 +133,7 @@ app.post('/login',async (req,res)=>{
             if(user){
                 const checkPassword = await bcrypt.compare(req.body.password, user.password)
                 if(checkPassword){
-                    req.session.user = user
+                    req.session.userId = user._id
                     const manga = await Manga.find()
                     res.render('userPage.ejs',{
                         user: user,
