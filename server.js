@@ -6,13 +6,22 @@ const bcrypt = require('bcryptjs')
 const session = require('express-session')
 require('dotenv').config();
 
+const MongoStore = require('connect-mongo')
 const mongoose = require('mongoose');
+
+const sessionStore = MongoStore.create({
+    mongoUrl: process.env.MONGODB,
+    mongooseConnection: mongoose.connection,
+    collectionName:'session'
+})
+
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({entended:false}))
 app.use(session({
     secret: 'sdlmadlamldasldanlwlrlqmlmlamslaladlmqlmlqa',
     resave:false,
     saveUninitialized:true,
+    store: sessionStore,
     cookie:{secure:false}
 }))
 
@@ -133,11 +142,13 @@ app.post('/login',async (req,res)=>{
             if(user){
                 const checkPassword = await bcrypt.compare(req.body.password, user.password)
                 if(checkPassword){
+                    req.session.cart=[]
                     req.session.userId = user._id
                     const manga = await Manga.find()
                     res.render('userPage.ejs',{
                         user: user,
-                        manga: manga
+                        manga: manga,
+                        cart: req.session.cart
                     })
                 }else{
                     res.send('No Password Found')
