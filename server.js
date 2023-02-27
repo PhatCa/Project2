@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({entended:false}))
 app.use(session({
-    secret: 'test',
+    secret: 'sdlmadlamldasldanlwlrlqmlmlamslaladlmqlmlqa',
     resave: false,
     saveUninitialized:false
 }))
