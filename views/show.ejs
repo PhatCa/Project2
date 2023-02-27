@@ -8,6 +8,8 @@
     <style>
         body{
             background-image: url('https://i.imgur.com/vXDWqIH.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         .whole_page{
             display:flex;
@@ -21,6 +23,7 @@
             width: 300px;
             height:400px;
             object-fit: contain;
+            box-shadow: 5px 10px #2e2d2da2;
         }
         .right_item_picture{
             display:flex;
@@ -63,6 +66,7 @@
 </head>
 <body>
     <div class="whole_page">
+        <div class="navBar"></div>
         <div class="item_picture">
             <img class="book_img" src="<%= manga.img %>" alt="mangaImg">
         </div>
