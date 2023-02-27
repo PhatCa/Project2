@@ -2,15 +2,24 @@ const express = require('express');
 const app = express();
 const methodOverride = require('method-override');
 const port = process.env.PORT ||3000;
+const bcrypt = require('bcryptjs')
+const session = require('express-session')
 require('dotenv').config();
 
 const mongoose = require('mongoose');
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({entended:false}))
+app.use(session({
+    secret: 'test',
+    resave: false,
+    saveUninitialized:false
+}))
 
 mongoose.set('strictQuery', false);
+
 const SeedData = require('./models/seed.js');
 const Manga = require('./models/mangaSchema.js');
+const User = require('./models/userSchema.js')
 
 
 //new
@@ -83,6 +92,75 @@ app.put('/manga/:id', (req, res) => {
 app.get('/',(req,res)=>{
     res.redirect('/manga')
 })
+
+
+
+
+
+
+
+
+
+
+//Register
+app.get('/register',(req,res)=>{
+    res.render('register.ejs')
+})
+
+
+app.post('/register',async (req,res)=>{
+    try{
+        const hashedPassword = await bcrypt.hash(req.body.password,10)
+        const user = await User.create({...req.body,password:hashedPassword})
+        res.render('login.ejs')
+    }catch(error){
+        console.log(error)
+        res.status(500).send('Server Error')
+    }
+})
+
+
+
+//Login
+app.get('/login',(req,res)=>{
+    res.render('login.ejs')
+})
+
+app.post('/login',async (req,res)=>{
+    try{
+        const user = await User.findOne({email: req.body.email})
+            if(user){
+                const checkPassword = await bcrypt.compare(req.body.password, user.password)
+                if(checkPassword){
+                    req.session.user = user
+                    const manga = await Manga.find()
+                    res.render('userPage.ejs',{
+                        user: user,
+                        manga: manga
+                    })
+                }else{
+                    res.send('No Password Found')
+                }
+            }
+            else{
+                res.send('No User Found')
+            }
+        }catch(error){
+        console.log(error)
+    }})
+
+
+//Log out
+app.post('/logout',(req,res)=>{
+    req.session.destroy((err)=>{
+        if(err){
+            console.log(err)
+        }else{
+            res.redirect('/')
+        }
+    })
+})
+
 
 //listeners
 mongoose.connect(process.env.MONGODB, () => {
