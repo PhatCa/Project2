@@ -9,8 +9,7 @@
         body {
             background-image: url('https://i.imgur.com/vXDWqIH.jpeg');
             background-repeat: no-repeat;
-            background-attachment: fixed; 
-            background-size: 100%;
+            background-size: cover;
         }
         .editPage {
             display: flex;
@@ -24,33 +23,41 @@
         }
         .underNavBar {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            gap: 240px
         }
         .infoBox {
             border: red solid 3px;
             background-color: aqua;
-            margin-right: 100px;
-            margin-left: 460px;
-            margin-top: 100px;
             padding: 10px 10px 10px 10px;
         }
         .imgBox {
             border: red solid 3px;
             height: 100px;
-            margin-top: -200px;
-            margin-right: 460px;
+            gap: 2px;
             background-color: aqua;
-            padding: 30px 10px 10px 10px;
         }
         
     </style>
 </head>
-<body>
-    <div class="editPage">
+<body class="editPage">
+    <div >
         <div class="navBarEdit">
             <button><a href="/manga">manga home</a></button>
         </div>
-        <div class="underNavbar">
+        <div class="underNavBar">
+            
+            <div class="imgBox">
+                    <form action="/manga/<%=mangaEdit.id%>?_method=PUT" method="POST">
+                    <a>image:</a><input 
+                    type="text"
+                    name="manga"
+                    placeholder="manga.img"
+                    class="form-control"
+                    value="<%=mangaEdit.image%>"
+                    />
+                    </form>
+            </div>
             <div class="infoBox">
                 <form action="/manga/<%=mangaEdit.id%>?_method=PUT" method="POST">
                     <a>Manga Name:</a><input
@@ -105,23 +112,13 @@
                     /><br />
                 </form>
             </div>
-            <div class="imgBox">
-                    <form action="/manga/<%=mangaEdit.id%>?_method=PUT" method="POST">
-                    <a>image:</a><input 
-                    type="text"
-                    name="manga"
-                    placeholder="manga.img"
-                    class="form-control"
-                    value="<%=mangaEdit.image%>"
-                    />
-                    </form>
-            </div>
-            <div class="editButton">
+            
+        </div>
+        <div class="editButton">
                 <form action="/manga/<%=mangaEdit.id%>?_method=PUT" method="POST">
                     <input type="submit" class="button" value="submit Changes" />
                 </form>
                 
-            </div>
         </div>
     </div>
 </body>
