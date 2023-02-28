@@ -31,6 +31,10 @@
             gap: 10px;
             
         }
+        .navBarShow{
+            margin-top: 15%;
+            margin-left: -160%;
+        }
         .book_img{
             padding:2%;
             background-color: white;
@@ -62,11 +66,25 @@
             padding-left: 10%;
             border-radius: 20px;
         }
+        .buttonNavShow{
+            cursor: pointer;
+            background-color: rgb(8, 8, 8);
+            color: azure;
+            border-radius: 4px;
+            box-shadow: rgba(0, 0, 0, 0.534) 10px 5px;
+        }
+        .buttonDelete, button {
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: black;
+            color: azure;
+            border-color: azure;
+        }
     </style>
 </head>
 <body>
     <div class="whole_page">
-        <div class="navBar"></div>
+        
         <div class="item_picture">
             <img class="book_img" src="<%= manga.img %>" alt="mangaImg">
         </div>
@@ -99,6 +117,7 @@
                 <div class="seller_name"><h4>John</h4></div>
                 <div class="contact"><h4>123-456-7777</h4></div>
             </div>
+            <div class="navBarShow"><a href="/manga"><button class='buttonNavShow'>Back to Home</button></a></div>
         </div>
     </div>
 </body>
