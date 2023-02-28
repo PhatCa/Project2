@@ -18,24 +18,25 @@
             flex-wrap:wrap;
         }
         .navBarEdit {
-            border: black solid 4px;
             background-color: green;
+            height: 5vh;
+            padding-top: 10px;
+            padding-left: 2%;
+            border-radius: 4px;
+            box-shadow: 5px 10px #2e2d2d80;
         }
-        .underNavBar {
+        .underNavBarEdit {
             display: flex;
             flex-direction: row;
             gap: 240px
         }
         .infoBox {
-            border: red solid 3px;
             background-color: aqua;
-            padding: 10px 10px 10px 10px;
-        }
-        .imgBox {
-            border: red solid 3px;
-            height: 100px;
-            gap: 2px;
-            background-color: aqua;
+            padding: 15px 15px 15px 15px;
+            margin-top: 15%; 
+            margin-left: 35%;
+            border-radius: 4px;
+            box-shadow: 5px 10px #2e2d2d80;
         }
         
     </style>
@@ -45,7 +46,7 @@
         <div class="navBarEdit">
             <button><a href="/manga">manga home</a></button>
         </div>
-        <div class="underNavBar">
+        <div class="underNavBarEdit">
             
             <div class="infoBox">
                 <form action="/manga/<%=mangaEdit.id%>?_method=PUT" method="POST">
@@ -61,9 +62,6 @@
                     <input 
                     type="Number" 
                     name="issue" 
-                     
-                    
-                    
                     /><br />
                     <label for="publisher">Publisher:</label>
                     <input 
@@ -102,12 +100,6 @@
                     <input type="submit" class="button" value="submit Changes" />
                 </form>
             </div>
-        </div>
-        <div class="editButton">
-                <form action="/manga/<%=mangaEdit.id%>?_method=PUT" method="POST">
-                    
-                </form>
-                
         </div>
     </div>
 </body>
