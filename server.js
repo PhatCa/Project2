@@ -15,9 +15,9 @@ const sessionStore = MongoStore.create({
 	collectionName: 'session',
 });
 
+app.use(express.urlencoded({ entended: false }));
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
-app.use(express.urlencoded({ entended: false }));
 app.use(
 	session({
 		secret: 'sdlmadlamldasldanlwlrlqmlmlamslaladlmqlmlqa',
