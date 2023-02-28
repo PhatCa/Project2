@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body{
+        .newPage{
             background-image: url('https://i.imgur.com/vXDWqIH.jpeg');
             background-repeat: no-repeat;
             background-size: cover;
         }
-        .newPage {
+        .new_Page {
             display: flex;
             flex-direction: column;
             gap: 50px;
             padding-bottom: 50%;
         }
-        .navBar {
+        .navBarNew {
             background-color: green;
             height: 5vh;
             padding-top: 10px;
@@ -24,7 +24,7 @@
             border-radius: 4px;
             box-shadow: 5px 10px #2e2d2d80;
         }
-        .info {
+        .infoNew{
             background-color: rgb(128, 128, 128);
             margin-left: 30%;
             margin-right: 30%;
@@ -39,10 +39,10 @@
     
     <title>add Manga</title>
 </head>
-<body>
-    <div class="newPage">
-        <div class="navBar"><a href="/manga">back to home page</a></div>
-        <div class="info">
+<body class="newPage">
+    <div class="new_Page">
+        <div class="navBarNew"><a href="/manga">back to home page</a></div>
+        <div class="infoNew">
             <form action="/manga/new" method="POST">
                 Name: <input type="text" name="name" required></br>
                 Issue: <input type="number" name="issue" required></br>
