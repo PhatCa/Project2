@@ -104,7 +104,9 @@ app.put('/manga/:id', (req, res) => {
 		req.params.id,
 		req.body,
 		{ new: true },
-		(err, updatedMangaData) => {}
+		(err, updatedMangaData) => {
+            res.redirect('/manga');
+        }
 	);
 });
 

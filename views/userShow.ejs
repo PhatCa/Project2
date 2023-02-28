@@ -33,7 +33,6 @@
         }
         .navBarShow{
             margin-top: 15%;
-            margin-left: -160%;
         }
         .book_img{
             padding:2%;
@@ -88,13 +87,14 @@
         <div class="item_picture">
             <img class="book_img" src="<%= manga.img %>" alt="mangaImg">
         </div>
+        
         <div class="right_item_picture">
             <div class="cost">
                 <h4 id="cost_card1">Cost: $<%=manga.price %></h1>
                 <h4 id="cost_card2">Item Name: <%= manga.name %></h4>
                 <h4 id="cost_card3">Issue Number: <%= manga.issue %></h4>
                 <div id="cost_card4">
-                    <div><h4>Rar: </h4></div>
+                    <div><h4>Rarity: </h4></div>
                     <div class="<%=manga.condition%>"><h3><%=manga.condition%></h3></div>
                 </div>
 
@@ -107,6 +107,7 @@
                             <%}%>
                     </h4>
                 </div>
+                
             </div>
             <div class="seller">
                 <div class="seller_pic"><h4>Pic</h4></div>
