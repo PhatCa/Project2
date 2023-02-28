@@ -6,7 +6,7 @@ const animeSchema = new mongoose.Schema({
     publisher:{type:String,required:true},
     img:{type:String,required:true},
     new: {type:Boolean, default:false},
-    condition:{type:String, enum:["normal","rare","super rare"],default:"normal"},
+    condition:{type:String, enum:["normal","rare","exotic"],default:"normal"},
     price:{type:Number,require:true}
 })
 

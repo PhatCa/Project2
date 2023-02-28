@@ -5,7 +5,7 @@ module.exports =[
         publisher:"DC Comics",
         img:"https://i0.wp.com/batman-news.com/wp-content/uploads/2019/05/Mondo_DetectiveComics27.jpg?fit=900%2C1200&quality=80&strip=info&ssl=1",
         new: false,
-        condition:"super rare",
+        condition:"exotic",
         price:2100000
     },{
         name: "Uncanny X-Men",
