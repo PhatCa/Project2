@@ -30,8 +30,8 @@
             flex-direction: row;
             gap: 240px
         }
-        .infoBox {
-            background-color: aqua;
+        .infoBoxEdit {
+            background-color: gray;
             padding: 15px 15px 15px 15px;
             margin-top: 15%; 
             margin-left: 35%;
@@ -48,7 +48,7 @@
         </div>
         <div class="underNavBarEdit">
             
-            <div class="infoBox">
+            <div class="infoBoxEdit">
                 <form action="/manga/<%=mangaEdit.id%>?_method=PUT" method="POST">
                     <label for="name">Manga Name:</label>
                     <input
