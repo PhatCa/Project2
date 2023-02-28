@@ -223,6 +223,15 @@ app.post('/cart/remove/:id',async(req,res)=>{
     res.redirect('/cart')
 })
 
+//User Show page
+app.get('/user/:id/show',async(req,res)=>{
+	const user = await User.findOne({username: req.session.username})
+	Manga.findById(req.params.id, (err, showMangaData) => {
+			res.render('userShow.ejs', {
+				manga: showMangaData,
+			});
+		});
+	});
 
 
 

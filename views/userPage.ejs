@@ -51,6 +51,7 @@
             border-radius: 4px;
             padding: 2%, 15px, 2%, 15px;
             box-shadow: 5px 10px #2e2d2d80;
+            
         }
         img {
             /* width: 25vh;
@@ -112,15 +113,15 @@
             </div>
         </div>
         <div class="underHomeTitle">
-            <div class = "navBar">
+            <!-- <div class = "navBar">
                 <button class="button"><a href="/manga/new">create new item</a>
-            </div>
+            </div> -->
             <div class="mangaContainer">
                 <% manga.forEach(manga=> { %>
                     <div class = "mangaCards">
                         <img src=<%=manga.img%>>
                         <div class="middle">
-                            <div class="buttonShow"><a href="/manga/<%= manga.id %>"><%=manga.name%></a></div>
+                            <div class="buttonShow"><a href="/user/<%= manga.id %>/show"><%=manga.name%></a></div>
                         </div>
                         <form  action="/cart/add/<%=manga.id  %>" method="POST">
                             <button class="addToCart">Add to Cart</button>
