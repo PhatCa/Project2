@@ -9,6 +9,7 @@
 
 <body>
     <h1>Hi <%=user.username %></h1>
+    <h1>Item in your cart: <%= cart.length %></h1>
     <form action="/logout" method="POST">
         <button type="submit">Logout</button>
     </form>
@@ -16,7 +17,11 @@
             <% manga.forEach(manga=> { %>
                 <div class = "mangaCards">
                     <h4><%=manga.name %></h4>
-                    <button class="button"><a href="/manga/<%= manga.id %>"><img src=<%=manga.img%>></a>
+                    <button class="button"><a href="/manga/<%=manga.id%>"><img src=<%=manga.img%>></a>
+                    <form  action="/cart/add/<%=manga.id  %>" method="POST">
+                        <button>Add to Cart</button>
+
+                    </form>
                     </div>
                     
                     <%})%>
