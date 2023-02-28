@@ -30,7 +30,6 @@ mongoose.set('strictQuery', false);
 const SeedData = require('./models/seed.js');
 const Manga = require('./models/mangaSchema.js');
 const User = require('./models/userSchema.js');
-const user = require('./models/userSchema.js');
 
 
 //new
@@ -54,11 +53,11 @@ app.post('/manga/new', (req, res) => {
     })
 })
 // seed
-app.get('/manga/seed', (req, res) => {
-    Manga.create(SeedData, (err, createdMangaData) => {
-    res.send(createdMangaData);
-    });
-});
+// app.get('/manga/seed', (req, res) => {
+//     Manga.create(SeedData, (err, createdMangaData) => {
+//     res.send(createdMangaData);
+//     });
+// });
 
 //index
 app.get('/manga', (req, res) => {
@@ -143,8 +142,8 @@ app.post('/login',async (req,res)=>{
             if(user){
                 const checkPassword = await bcrypt.compare(req.body.password, user.password)
                 if(checkPassword){
-                    req.session.cart=[]
-                    req.session.userId = user._id
+                    // req.session.cart=[]
+                    // req.session.userId = user._id
                     const manga = await Manga.find()
                     res.render('userPage.ejs',{
                         user: user,
@@ -165,17 +164,26 @@ app.post('/login',async (req,res)=>{
 
 //Add manga route
 app.post('/cart/add/:id', async (req,res)=>{
+    // req.session.user = user
+    const user = await User.findOne({email: req.body.email})
     const mangaId = req.params.id
     const mangaWanted = await Manga.findById(mangaId)
-    req.session.cart.push(mangaWanted)
     const manga = await Manga.find({})
+    user.cart.push(mangaWanted)
+    await user.save()
     res.render('userPage.ejs',{
-        user:user,
-        cart:req.session.cart,
-        manga:manga
+        user: user,
+        manga: manga
     })
+    
 })
 
+//Spread operator
+//find manga by the id = manga
+//const user = find user
+//user.cart.push(manga.id)
+
+//splice for remove
 
 
 

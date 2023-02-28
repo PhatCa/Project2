@@ -8,8 +8,8 @@
 </head>
 
 <body>
-    <h1>Hi <%=user.username %></h1>
-    <h1>Item in your cart: <%= cart.length %></h1>
+    <h1>Hi <%=user.email %></h1>
+    <h1>Item in your cart: <%= user.cart.length%></h1>
     <form action="/logout" method="POST">
         <button type="submit">Logout</button>
     </form>
@@ -20,7 +20,7 @@
                     <button class="button"><a href="/manga/<%=manga.id%>"><img src=<%=manga.img%>></a>
                     <form  action="/cart/add/<%=manga.id  %>" method="POST">
                         <button>Add to Cart</button>
-
+                        <input type="hidden" name="email" value="<%= user.email %>">
                     </form>
                     </div>
                     
