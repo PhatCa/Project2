@@ -36,12 +36,14 @@
             border: green 1px solid;
             background-color: green;
             gap: 50%;
+            box-shadow: 5px 10px #2e2d2d80;
+            border-radius: 4px;
         }
         .underHomeTitle {
             display: flex;
             padding: 10px;
             height: 85vh;
-            gap: 24%;
+            gap: 14%;
         }
         .mangaCards {
             display:flex;
@@ -72,26 +74,23 @@
         .mangaCards:hover .middle {
             opacity: 1;
         }
-        .navBar {
-            background-image: url('https://i.imgur.com/XzQCoXz.jpg');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            padding-right: 1%;
-            padding-left: 1%;
-            padding-top: 1%;
+        .cartBar {
+            background-color: gray;
+            padding-right: 12%;
+            padding-left: 14px;
+            margin-bottom: 14%;
             border-radius: 4px;
-        }
-        .buttonDelete {
-            position: relative;
+            box-shadow: 5px 10px #2e2d2d80;
         }
         .buttonShow {
             border: 2px solid rgb(247, 242, 242);
-            background-color: #04AA6D;
+            background-color: #050505;
             font-size: 16px;
             margin-top: -100%;
             margin-left: 20%;
             margin-right: 20%;
             position: relative;
+            color: azure;
         }
         .addToCart{
             margin-left:32%;
@@ -104,18 +103,19 @@
         <div class="homeTitle">
             <h3>Phat Bailey Inc.</h3>
             <div class="titleButtons">
-                <h1>Hi <%=user.username  %></h1>
-                <h1>Item in your cart: <%= user.cart.length%></h1>
-                <a href="/cart">Go to your cart</a>
+                
+                
                 <form action="/logout" method="POST">
                     <button type="submit">Logout</button>
                 </form>
             </div>
         </div>
         <div class="underHomeTitle">
-            <!-- <div class = "navBar">
-                <button class="button"><a href="/manga/new">create new item</a>
-            </div> -->
+            <div class = "cartBar">
+                <h1>Hi <%=user.username  %></h1>
+                <h1>Item's in your cart: <%= user.cart.length%></h1>
+                <a href="/cart"><button>to your cart</button></a>
+            </div>
             <div class="mangaContainer">
                 <% manga.forEach(manga=> { %>
                     <div class = "mangaCards">
