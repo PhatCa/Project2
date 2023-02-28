@@ -8,8 +8,8 @@ this site is fore people to veiw and buy manga as well as sell them on our site.
 - As a user i want to be able to check the rarity of this manga what is the price of this manga and what other kinds of manga i might like based of my interest
 
 ## Wier Framework
-![](Project2\img\editPicOne.png)
-![](Project2\img\editPicTwo.png)
+![alt text](Project2\img\editPicOne.png)
+![alt text](Project2\img\editPicTwo.png)
 
 ## Installation
 
