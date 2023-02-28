@@ -4,27 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Pokemon</title>
+    <style>
+        body{
+            background-image: url('https://i.imgur.com/vXDWqIH.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .newPage {
+            display: flex;
+            flex-direction: column;
+        }
+        .navBar {
+            border: ;
+        }
+    </style>
+    
+    <title>add Manga</title>
 </head>
 <body>
-    <form action="/manga/new" method="POST">
-        Name: <input type="text" name="name" required>
-        Issue: <input type="number" name="issue" required>
-        Publisher: <input type="text" name="publisher" required>
-        Book Image Link: <input type="type" name="img" required>
-        New: <input type="checkbox" name="new" value="true">
-        <input type="hidden" name="new" value="false">
-        Condition : <input list="condition" name="condition">
-        <datalist id="condition">
-            <option value="normal">
-            <option value="rare">
-            <option value="super rare">
+    <div class="newPage">
+        <div class="navBar"><button><a href="/manga">back to home page</a></button></div>
+        <div class="info">
+            <form action="/manga/new" method="POST">
+                Name: <input type="text" name="name" required>
+                Issue: <input type="number" name="issue" required>
+                Publisher: <input type="text" name="publisher" required>
+                Book Image Link: <input type="type" name="img" required>
+                New: <input type="checkbox" name="new" value="true">
+                <input type="hidden" name="new" value="false">
+                Condition : <input list="condition" name="condition">
+                <datalist id="condition">
+                    <option value="normal">
+                    <option value="rare">
+                    <option value="super rare">
 
 
-        </datalist>
-        Price: <input type="number" name="price" required>
-        <input type="submit" value="Add Comic">
-    </form>
-    <a href="/">Back to Main Page</a>
+                </datalist>
+                Price: <input type="number" name="price" required>
+                <input type="submit" value="Add Comic">
+            </form>
+        </div>
+    </div>
 </body>
 </html>
