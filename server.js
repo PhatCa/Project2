@@ -47,8 +47,13 @@ app.get('/manga/new', (req, res) => {
 
 //create
 app.post('/manga/new', (req, res) => {
+    if(req.body.new === "on"){
+        req.body.new = true;
+    } else {
+        req.body.new = false;
+    }
     Manga.create(req.body, (err, data) => {
-        console.log(req.body)
+        console.log('req body',req.body)
         res.redirect('/manga');
     })
 })
@@ -93,8 +98,9 @@ app.get('/manga/:id/edit', (req, res) => {
 });
 //update
 app.put('/manga/:id', (req, res) => {
-    Manga.findByIdandUpdate(req.params.id, req.body, (err, updatedMangaData) => {
-        res.redirect('/manga');
+    // console.log(req.body);
+    Manga.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedMangaData) => {
+        
     });
 });
 

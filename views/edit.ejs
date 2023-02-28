@@ -47,76 +47,65 @@
         </div>
         <div class="underNavBar">
             
-            <div class="imgBox">
-                    <form action="/manga/<%=mangaEdit.id%>?_method=PUT" method="POST">
-                    <a>image:</a><input 
-                    type="text"
-                    name="manga"
-                    placeholder="manga.img"
-                    class="form-control"
-                    value="<%=mangaEdit.image%>"
-                    />
-                    </form>
-            </div>
             <div class="infoBox">
                 <form action="/manga/<%=mangaEdit.id%>?_method=PUT" method="POST">
-                    <a>Manga Name:</a><input
+                    <label for="name">Manga Name:</label>
+                    <input
                     type="text"
-                    name="manga.name"
+                    name="name"
                     placeholder="manga Name"
                     class="form-control"
                     value="<%=mangaEdit.name%>"
                     /><br />
-                    <a>Issue Number:</a><input 
+                    <label for="issue">Issue Number:</label>
+                    <input 
                     type="Number" 
-                    name="manga.issue" 
-                    placeholder="manga Issue" 
-                    class="form-control"
-                    value="<%=mangaEdit.issue%>"
+                    name="issue" 
+                     
+                    
+                    
                     /><br />
-                    <a>Publisher:</a><input 
+                    <label for="publisher">Publisher:</label>
+                    <input 
                     type="text" 
-                    name="manga.publisher" 
+                    name="publisher" 
                     placeholder="Publisher" 
                     class="form-control"
                     value="<%=mangaEdit.publisher%>" 
                     /><br />
                     
-                    <a>New:</a><input 
-                    type="checkbox"  
-                    name="manga.new" 
-                    value="<%=mangaEdit.new%>" 
-                    /><br />
-                    <a>Condition:</a><br />
-                        normal:<input
-                        type="checkbox"
-                        name="manga.condition[0]"
-                        value="<%=mangaEdit.condition[0]%>"
-                        />
-                        rare:<input 
-                        type="checkbox" 
-                        name="manga.condition[1]" 
-                        value="<%=mangaEdit.condition[1]%>" 
-                        />
-                        exotic:<input 
-                        type="checkbox" 
-                        name="manga.condition[2]"
-                        value="<%=mangaEdit.condition[2]%>" 
-                        /><br />
+                    <label for="new">New:</label>
                     <input 
+                    type="checkbox"  
+                    name="new"
+                    value=""
+                    /><br />
+                    <label for="condition">Rarity:</label>
+                        <!-- <input list="condition" name="condition"></br>
+                        <datalist id="condition">
+                         -->
+                        <select name="condition" id="condition">
+                            <option value="normal">Common</option>
+                            <option value="rare">Rare</option>
+                            <option value="exotic">Exotic</option>
+                            </select></br>
+                            
+                        <!-- </datalist> -->
+                    <label for="price">Price:</label>
+                        <input 
                     type="number" 
-                    name="manga.price" 
+                    name="price" 
                     placeholder="mang Price"
                     class="form-control"
                     value="<%=mangaEdit.price%>" 
                     /><br />
+                    <input type="submit" class="button" value="submit Changes" />
                 </form>
             </div>
-            
         </div>
         <div class="editButton">
                 <form action="/manga/<%=mangaEdit.id%>?_method=PUT" method="POST">
-                    <input type="submit" class="button" value="submit Changes" />
+                    
                 </form>
                 
         </div>

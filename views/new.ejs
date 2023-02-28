@@ -14,7 +14,7 @@
             display: flex;
             flex-direction: column;
             gap: 50px;
-            padding-bottom: 60%;
+            padding-bottom: 50%;
         }
         .navBar {
             background-color: gray;
@@ -48,13 +48,12 @@
                 Issue: <input type="number" name="issue" required></br>
                 Publisher: <input type="text" name="publisher" required></br>
                 Book Image Link: <input type="type" name="img" required></br>
-                New: <input type="checkbox" name="new" value="true"></br>
-                <input type="hidden" name="new" value="false">
-                Condition : <input list="condition" name="condition"></br>
+                New: <input type="checkbox" name="new"></br>
+                Rarity : <input list="condition" name="condition"></br>
                 <datalist id="condition">
                     <option value="normal">
                     <option value="rare">
-                    <option value="super rare">
+                    <option value="exotic">
                 </datalist>
                 Price: <input type="number" name="price" required></br>
                 <input type="submit" value="Add Comic">
