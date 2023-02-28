@@ -13,9 +13,27 @@
         .newPage {
             display: flex;
             flex-direction: column;
+            gap: 50px;
+            padding-bottom: 60%;
         }
         .navBar {
-            border: ;
+            background-color: gray;
+            height: 5vh;
+            padding-top: 10px;
+            padding-left: 2%;
+            border-radius: 4px;
+            box-shadow: 5px 10px #2e2d2d80;
+        }
+        .info {
+            background-color: rgb(128, 128, 128);
+            margin-left: 30%;
+            margin-right: 30%;
+            height: 40vh;
+            text-align: center;
+            padding-top: 5%;
+            border-radius: 4px;
+            box-shadow: 5px 10px #2e2d2d80;
+            padding-bottom: 5%;
         }
     </style>
     
@@ -23,22 +41,22 @@
 </head>
 <body>
     <div class="newPage">
-        <div class="navBar"><button><a href="/manga">back to home page</a></button></div>
+        <div class="navBar"><a href="/manga">back to home page</a></div>
         <div class="info">
             <form action="/manga/new" method="POST">
-                Name: <input type="text" name="name" required>
-                Issue: <input type="number" name="issue" required>
-                Publisher: <input type="text" name="publisher" required>
-                Book Image Link: <input type="type" name="img" required>
-                New: <input type="checkbox" name="new" value="true">
+                Name: <input type="text" name="name" required></br>
+                Issue: <input type="number" name="issue" required></br>
+                Publisher: <input type="text" name="publisher" required></br>
+                Book Image Link: <input type="type" name="img" required></br>
+                New: <input type="checkbox" name="new" value="true"></br>
                 <input type="hidden" name="new" value="false">
-                Condition : <input list="condition" name="condition">
+                Condition : <input list="condition" name="condition"></br>
                 <datalist id="condition">
                     <option value="normal">
                     <option value="rare">
                     <option value="super rare">
                 </datalist>
-                Price: <input type="number" name="price" required>
+                Price: <input type="number" name="price" required></br>
                 <input type="submit" value="Add Comic">
             </form>
         </div>
