@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('https://i.imgur.com/vXDWqIH.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .whole_page{
+            display:flex;
+            flex-wrap:wrap;
+        }
+        .item_picture{
+            width:50%;
+            height:50%;
+        }
+        img{
+            width: 300px;
+            height:400px;
+            object-fit: contain;
+            box-shadow: 5px 10px #2e2d2da2;
+        }
+        .right_item_picture{
+            display:flex;
+            flex-direction: column;
+            gap: 10px;
+            
+        }
+        .navBarShow{
+            margin-top: 15%;
+            margin-left: -160%;
+        }
+        .book_img{
+            padding:2%;
+            background-color: white;
+        }
+        .cost{
+            border: red 8px solid;
+            width: 400px;
+            padding-left: 10%;
+            background-color: gray;
+            border-radius: 20px;
+        }
+        .exotic{
+            color:gold
+        }
+        .rare{
+            color:silver
+        }
+        .normal{
+            color:rgb(205,127,50)
+        }
+        #cost_card4{
+            display:flex;
+            flex-direction: row;
+            gap:2px;
+        }
+        .seller{
+            border: blue solid 8px;
+            background:red;
+            padding-left: 10%;
+            border-radius: 20px;
+        }
+        .buttonNavShow{
+            cursor: pointer;
+            background-color: rgb(8, 8, 8);
+            color: azure;
+            border-radius: 4px;
+            box-shadow: rgba(0, 0, 0, 0.534) 10px 5px;
+        }
+        .buttonDelete, button {
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: black;
+            color: azure;
+            border-color: azure;
+        }
+    </style>
+</head>
+<body>
+    <div class="whole_page">
+        
+        <div class="item_picture">
+            <img class="book_img" src="<%= manga.img %>" alt="mangaImg">
+        </div>
+        <div class="right_item_picture">
+            <div class="cost">
+                <h4 id="cost_card1">Cost: $<%=manga.price %></h1>
+                <h4 id="cost_card2">Item Name: <%= manga.name %></h4>
+                <h4 id="cost_card3">Issue Number: <%= manga.issue %></h4>
+                <div id="cost_card4">
+                    <div><h4>Rar: </h4></div>
+                    <div class="<%=manga.condition%>"><h3><%=manga.condition%></h3></div>
+                </div>
+
+                <div>
+                    <h4>Status: 
+                        <% if(manga.new === true){%>
+                                New
+                        <%} else{%>
+                                Used
+                            <%}%>
+                    </h4>
+                </div>
+                <a href="/manga/<%= manga.id %>/edit"><button>Edit</button></a>
+                <form action="/manga/<%=manga.id%>?_method=DELETE" method="POST">
+                    <input type="submit" class="buttonDelete" value="DELETE" />
+                </form>
+            </div>
+            <div class="seller">
+                <div class="seller_pic"><h4>Pic</h4></div>
+                <div class="seller_name"><h4>John</h4></div>
+                <div class="contact"><h4>123-456-7777</h4></div>
+            </div>
+            <div class="navBarShow"><a href="/manga"><button class='buttonNavShow'>Back to Home</button></a></div>
+        </div>
+    </div>
+</body>
+</html>

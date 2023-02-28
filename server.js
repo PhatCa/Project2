@@ -143,13 +143,11 @@ app.post('/login', async (req, res) => {
 				user.password
 			);
 			if (checkPassword) {
-				// req.session.cart=[]
-				// req.session.userId = user._id
+				req.session.username = user.username
 				const manga = await Manga.find();
 				res.render('userPage.ejs', {
 					user: user,
 					manga: manga,
-					cart: req.session.cart,
 				});
 			} else {
 				res.send('No Password Found');
@@ -164,17 +162,18 @@ app.post('/login', async (req, res) => {
 
 //Add manga route
 app.post('/cart/add/:id', async (req, res) => {
-	// req.session.user = user
 	const user = await User.findOne({ email: req.body.email });
 	const mangaId = req.params.id;
-	const mangaWanted = await Manga.findById(mangaId);
-	const manga = await Manga.find({});
-	user.cart.push(mangaWanted);
-	await user.save();
-	res.render('userPage.ejs', {
+    user.cart.push(mangaId);
+    await user.save()
+    const manga = await Manga.find({});
+    res.render('userPage.ejs', {
 		user: user,
 		manga: manga,
 	});
+
+    
+	
 });
 
 //Spread operator
@@ -194,6 +193,38 @@ app.post('/logout', (req, res) => {
 		}
 	});
 });
+//Show cart
+app.get('/cart',async(req,res)=>{
+    const user = await User.findOne({username: req.session.username}).populate('cart')
+    res.render('userCart.ejs',{
+        user: user,
+    })
+})
+
+//Route to user main page
+app.get('/user',async(req,res)=>{
+    const user = await User.findOne({ username: req.session.username}).populate('cart')
+    const manga = await Manga.find({})
+    res.render('userPage.ejs',{
+        user:user,
+        manga:manga
+    })
+})
+
+//route to remove item from cart
+app.post('/cart/remove/:id',async(req,res)=>{
+    const user = await User.findOne({username:req.session.username});
+    const mangaId = req.params.id;
+    const index = user.cart.indexOf(mangaId);
+    if(index !== -1){
+        user.cart.splice(index,1)
+    }
+    await user.save()
+    res.redirect('/cart')
+})
+
+
+
 
 //listeners
 mongoose.connect(process.env.MONGODB, () => {
