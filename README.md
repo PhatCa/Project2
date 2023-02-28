@@ -9,6 +9,7 @@ this site is fore people to veiw and buy manga as well as sell them on our site.
 
 ## Wier Framework
 ![Wier Framework](img/editPicOne.png)
+![Wier Framework](img/editPicTwo.png)
 
 ## Installation
 
