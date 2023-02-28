@@ -53,12 +53,12 @@ app.post('/manga/new', (req, res) => {
         res.redirect('/manga');
     })
 })
-//seed
-// app.get('/manga/seed', (req, res) => {
-//     Manga.create(SeedData, (err, createdMangaData) => {
-//     res.send(createdMangaData);
-//     });
-// });
+// seed
+app.get('/manga/seed', (req, res) => {
+    Manga.create(SeedData, (err, createdMangaData) => {
+    res.send(createdMangaData);
+    });
+});
 
 //index
 app.get('/manga', (req, res) => {
