@@ -1,0 +1,30 @@
+.newPage{
+    background-image: url('https://i.imgur.com/vXDWqIH.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.new_Page {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-bottom: 50%;
+}
+.navBarNew {
+    background-color: green;
+    height: 5vh;
+    padding-top: 10px;
+    padding-left: 2%;
+    border-radius: 4px;
+    box-shadow: 5px 10px #2e2d2d80;
+}
+.infoNew{
+    background-color: rgb(128, 128, 128);
+    margin-left: 30%;
+    margin-right: 30%;
+    height: 40vh;
+    text-align: center;
+    padding-top: 5%;
+    border-radius: 4px;
+    box-shadow: 5px 10px #2e2d2d80;
+    
+}

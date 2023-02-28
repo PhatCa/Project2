@@ -1,0 +1,19 @@
+.loginPage{
+    background-image: url('https://i.imgur.com/vXDWqIH.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.wholePage{
+    display: flex;
+}
+.infoLogin {
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: center;
+    margin-top: 20%;
+    padding: 60px;
+    background-color: gray;
+    border-radius: 4px;
+    box-shadow: 5px 10px #2e2d2d80;
+}

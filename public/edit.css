@@ -1,0 +1,33 @@
+.editPage {
+    background-image: url('https://i.imgur.com/vXDWqIH.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.edit_Page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    flex-wrap:wrap;
+}
+.navBarEdit {
+    background-color: green;
+    height: 5vh;
+    padding-top: 10px;
+    padding-left: 2%;
+    border-radius: 4px;
+    box-shadow: 5px 10px #2e2d2d80;
+}
+.underNavBarEdit {
+    display: flex;
+    flex-direction: row;
+    gap: 240px
+}
+.infoBoxEdit {
+    background-color: gray;
+    padding: 15px 15px 13.5% 15px;
+    margin-top: 15%; 
+    margin-left: 35%;
+    border-radius: 4px;
+    box-shadow: 5px 10px #2e2d2d80;
+}
+
