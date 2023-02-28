@@ -25,6 +25,7 @@ Install my-project with npm
   npm install express-session
   npm install env
   npm install dotenv
+  npm install conncect-mongo
 ```
     
 ## Authors
