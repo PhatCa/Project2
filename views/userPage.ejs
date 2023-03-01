@@ -35,7 +35,7 @@
                                 <div class="buttonShow"><a href="/user/<%= manga.id %>/show"><%=manga.name%></a></div>
                             </div>
                             <form  action="/cart/add/<%=manga.id  %>" method="POST">
-                                <button class="addToCart">Add to Cart</button>
+                                <button >Add to Cart</button>
                                 <input type="hidden" name="email" value="<%= user.email %>">
                             </form>
                         </div>

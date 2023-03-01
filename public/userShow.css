@@ -67,10 +67,3 @@ img{
     padding: 5px 7px 5px 7px;
     border: 0;
 }
-.buttonDelete, button {
-    cursor: pointer;
-    border-radius: 4px;
-    background-color: black;
-    color: azure;
-    border-color: azure;
-}
